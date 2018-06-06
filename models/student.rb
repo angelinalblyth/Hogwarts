@@ -3,23 +3,23 @@ require_relative('../db/sql_runner')
 class Student
 
   attr_reader :id
-  attr_accessor :first_name, :last_name, :house, :age
+  attr_accessor :first_name, :last_name, :house_id, :age
 
   def initialize(options)
     @id = options['id'].to_i
     @first_name = options['first_name']
     @last_name = options['last_name']
-    @house = options['house']
     @age = options['age'].to_i
+    @house_id = options['house_id'].to_i
   end
 
   def full_name()
     return "#{first_name} #{last_name}"
-  end 
+  end
 
   def save()
-    sql = "INSERT INTO students(first_name, last_name,house,age) VALUES ($1, $2, $3, $4) RETURNING id"
-    values = [@first_name, @last_name, @house, @age]
+    sql = "INSERT INTO students(first_name, last_name,age, house_id) VALUES ($1, $2, $3, $4) RETURNING id"
+    values = [@first_name, @last_name, @age, @house_id]
     new_student = SqlRunner.run(sql, values).first
     @id = new_student['id'].to_i
   end
@@ -37,8 +37,8 @@ class Student
   end
 
   def update()
-    sql = "UPDATE students SET (first_name, last_name, house, age) = ($1, $2, $3, $4) WHERE id = $5"
-    values = [@first_name, @last_name, @house, @age, @id]
+    sql = "UPDATE students SET (first_name, last_name,age, house_id) = ($1, $2, $3, $4) WHERE id = $5"
+    values = [@first_name, @last_name, @age, @house_id, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -53,6 +53,14 @@ class Student
     value = [id]
     student = SqlRunner.run(sql, value)
     result = Student.new( student.first )
+    return result
+  end
+
+  def find_house()
+    sql = "SELECT students.*, houses.name FROM students INNER JOIN houses ON students.house_id = houses.id;"
+    value = [:id]
+    house = SqlRunner.run(sql, values)
+    result = House.new(house)
     return result
   end
 

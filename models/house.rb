@@ -12,14 +12,14 @@ class House
     @colours = options['colours']
     @animal = options['animal']
     @traits = options['traits']
-    @teacher = options['head']
+    @teacher = options['teacher']
     @ghost = options['ghost']
     @common_room = options['common_room']
   end
 
   def save()
     sql = "INSERT INTO houses(name, founder, colours, animal, traits, teacher, ghost, common_room) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id"
-    values = [@name, @founder, @colours, @animal, @traits, @Headless, @ghost, @common_room]
+    values = [@name, @founder, @colours, @animal, @traits, @teacher, @ghost, @common_room]
     new_house = SqlRunner.run(sql, values).first
     @id = new_house['id'].to_i
   end

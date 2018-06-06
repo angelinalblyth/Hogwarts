@@ -52,13 +52,13 @@ house4= House.new({
 house4.save()
 
 
-student1 = Student.new({'first_name' => 'Harry','last_name' => 'Potter','house' => 'Gryffindor','age' => '11'})
+student1 = Student.new({'first_name' => 'Harry','last_name' => 'Potter','house_id' => house1.id ,'age' => '11'})
 student1.save()
-student2 = Student.new({'first_name' => 'Luna','last_name' => 'Lovegood','house' => 'Ravenclaw','age' => '10'})
+student2 = Student.new({'first_name' => 'Luna','last_name' => 'Lovegood','house_id' => house3.id,'age' => '10'})
 student2.save()
-student3 = Student.new({'first_name' => 'Cedric','last_name' => 'Diggory','house' => 'Hufflepuff','age' => '13'})
+student3 = Student.new({'first_name' => 'Cedric','last_name' => 'Diggory','house_id' => house2.id,'age' => '13'})
 student3.save()
-student4 = Student.new({'first_name' => 'Draco','last_name' => 'Malfoy','house' => 'Slytherin','age' => '11'})
+student4 = Student.new({'first_name' => 'Draco','last_name' => 'Malfoy','house_id' => house4.id,'age' => '11'})
 student4.save()
 
 binding.pry()
