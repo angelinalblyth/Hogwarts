@@ -13,6 +13,10 @@ class Student
     @age = options['age'].to_i
   end
 
+  def full_name()
+    return "#{first_name} #{last_name}"
+  end 
+
   def save()
     sql = "INSERT INTO students(first_name, last_name,house,age) VALUES ($1, $2, $3, $4) RETURNING id"
     values = [@first_name, @last_name, @house, @age]
