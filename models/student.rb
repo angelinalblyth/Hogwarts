@@ -20,5 +20,20 @@ class Student
     @id = new_student['id'].to_i
   end
 
+  def self.all()
+  end
+
+  def self.delete_all()
+  end
+
+  def update()
+  end
+
+  def delete()
+  end
+
+  def self.find(id)
+  end 
+
 
 end
