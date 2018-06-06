@@ -44,11 +44,11 @@ class Student
     SqlRunner.run(sql, values)
   end
 
-  def self.find(id)
+  def self.find( id )
     sql = "SELECT * FROM students WHERE id = $1"
     value = [id]
     student = SqlRunner.run(sql, value)
-    result = Student.new(student.first)
+    result = Student.new( student.first )
     return result
   end
 
