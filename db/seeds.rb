@@ -3,6 +3,7 @@ require_relative('../models/house.rb')
 
 require('pry-byebug')
 
+House.delete_all()
 Student.delete_all()
 
 house1= House.new({
@@ -11,9 +12,9 @@ house1= House.new({
   'colours' => 'Scarlet and gold',
   'animal' => 'Lion',
   'traits' => 'Brave',
-  'head' => 'Minerva McGonagall',
+  'teacher' => 'Minerva McGonagall',
   'ghost' => 'Nearly Headless Nick',
-  'common_room' => 'Gryffindor Tower' ,
+  'common_room' => 'Gryffindor Tower'
   })
 house1.save()
 house2= House.new({
@@ -22,9 +23,9 @@ house2= House.new({
   'colours' => 'Yellow and black',
   'animal' => 'Badger',
   'traits' => 'Loyal',
-  'head' => 'Pomona Sprout',
+  'teacher' => 'Pomona Sprout',
   'ghost' => 'Fat Friar',
-  'common_room' => 'Hufflepuff Basement' ,
+  'common_room' => 'Hufflepuff Basement'
   })
 house2.save()
 house3= House.new({
@@ -33,9 +34,9 @@ house3= House.new({
   'colours' => 'Blue and bronze',
   'animal' => 'Eagle',
   'traits' => 'Wise',
-  'head' => 'Horace Slughorn',
+  'teacher' => 'Horace Slughorn',
   'ghost' => 'Grey Lady',
-  'common_room' => 'Ravenclaw Tower' ,
+  'common_room' => 'Ravenclaw Tower'
   })
 house3.save()
 house4= House.new({
@@ -44,9 +45,9 @@ house4= House.new({
   'colours' => 'Green and silver',
   'animal' => 'Snake',
   'traits' => 'Cunning',
-  'head' => 'Severus Snape',
+  'teacher' => 'Severus Snape',
   'ghost' => 'Bloody Baron',
-  'common_room' => 'Slytherin Dungeon' ,
+  'common_room' => 'Slytherin Dungeon'
   })
 house4.save()
 
