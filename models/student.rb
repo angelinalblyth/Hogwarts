@@ -1,5 +1,7 @@
 require_relative('../db/sql_runner')
 
+require_relative('./house')
+
 class Student
 
   attr_reader :id
@@ -56,11 +58,11 @@ class Student
     return result
   end
 
-  def find_house()
-    sql = "SELECT students.*, houses.name FROM students INNER JOIN houses ON students.house_id = houses.id;"
-    value = [:id]
-    house = SqlRunner.run(sql, values)
-    result = House.new(house)
+  def house()
+    sql = "SELECT * FROM houses WHERE id = $1"
+    values = [@house_id]
+    student_house = SqlRunner.run(sql, values).first
+    result = House.new(student_house)
     return result
   end
 
